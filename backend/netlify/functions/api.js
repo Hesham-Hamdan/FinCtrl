@@ -4,7 +4,7 @@ const cors = require("cors");
 const ServerlessHttp = require("serverless-http");
 
 const connectDB = require("../../config/db");
-const { notFound, errorHandler } = require("../../middlewares/errorMiddleware");
+const { notFound, errorHandler } = require("../../middleware/errorMiddleware");
 
 const authRoutes = require("../../routes/authRoutes");
 const incomeRoutes = require("../../routes/incomeRoutes");
