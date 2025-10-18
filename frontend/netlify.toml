@@ -1,0 +1,26 @@
+# This file configures the build and deployment for the frontend application.
+
+# --- Build Command Configuration ---
+# This section tells Netlify how to build your site in different environments.
+
+# This is the default build command, used for deploy previews.
+# It dynamically creates a .env file with the correct backend preview URL
+# before running the standard 'npm run build' command.
+[build]
+  command = "echo VITE_API_URL=https://deploy-preview-${REVIEW_ID}--finctrl-backend.netlify.app > .env && npm run build"
+  publish = "dist" # Or "build" if you are using Create React App
+
+# This command runs ONLY for your main production site (on the 'main' branch).
+# It overrides the default command and sets the production backend URL.
+[context.production]
+  command = "echo VITE_API_URL=https://finctrl-backend.netlify.app > .env && npm run build"
+
+
+# --- Redirect Rule for Single Page Applications (SPA) ---
+# This is the most important rule. It prevents "404 Not Found" errors on page refresh.
+# It tells Netlify: "For any request that doesn't match a real file, just serve the index.html file."
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

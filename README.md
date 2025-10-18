@@ -1,0 +1,3 @@
+# FinCtrl.
+
+Expense Tracker App.
