@@ -14,10 +14,10 @@ const dashboardRoutes = require("../../routes/dashboardRoutes");
 connectDB();
 const app = express();
 
-const whitelist = ["https://finctrl.netlify.app"];
+const whitelist = ["https://finctrl-frontend.netlify.app"];
 if (process.env.CONTEXT !== "production") {
   const deployPreviewPattern =
-    /^https:\/\/deploy-preview-\d+--finctrl\.netlify\.app$/;
+    /^https:\/\/deploy-preview-\d+--finctrl-frontend\.netlify\.app$/;
   whitelist.push(deployPreviewPattern);
 }
 const corsOptions = {
